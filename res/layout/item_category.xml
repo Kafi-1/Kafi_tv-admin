@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/bg_card"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/catName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="#cbd5e1"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/catEditBtn"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:text="\u270E"
+        android:textColor="#818cf8"
+        android:textSize="14sp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:layout_marginRight="4dp" />
+
+    <Button
+        android:id="@+id/catDelBtn"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:text="\u2715"
+        android:textColor="#f87171"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:background="@android:color/transparent"
+        android:gravity="center" />
+</LinearLayout>

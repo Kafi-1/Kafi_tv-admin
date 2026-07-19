@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/bg_card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/payUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1e293b"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/payNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#64748b"
+                android:textSize="10sp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end"
+            android:paddingLeft="8dp">
+            <TextView
+                android:id="@+id/payTrxId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#6366f1"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:typeface="monospace" />
+            <TextView
+                android:id="@+id/payTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#94a3b8"
+                android:textSize="9sp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/payStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/payActions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnApprove"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:background="@drawable/bg_act_approve"
+                android:text="Approve"
+                android:textColor="#22c55e"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_marginRight="4dp" />
+            <Button
+                android:id="@+id/btnReject"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:background="@drawable/bg_act_del"
+                android:text="Reject"
+                android:textColor="#ef4444"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

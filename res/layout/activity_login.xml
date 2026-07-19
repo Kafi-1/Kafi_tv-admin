@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#f8fafc">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_login_box"
+        android:padding="32dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_logo"
+            android:text="K"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TV BY KAFI"
+            android:textColor="#1e293b"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADMIN CONSOLE"
+            android:textColor="#6366f1"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.2"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="32dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ADMIN EMAIL"
+            android:textColor="#64748b"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:paddingLeft="4dp" />
+
+        <EditText
+            android:id="@+id/loginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input"
+            android:textColor="#1e293b"
+            android:textColorHint="#94a3b8"
+            android:hint="admin@pro.com"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:inputType="textEmailAddress"
+            android:singleLine="true"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SECURITY PIN"
+            android:textColor="#64748b"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"
+            android:paddingLeft="4dp" />
+
+        <EditText
+            android:id="@+id/loginPin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input"
+            android:textColor="#1e293b"
+            android:textColorHint="#94a3b8"
+            android:hint="------"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:inputType="textPassword"
+            android:gravity="center"
+            android:letterSpacing="0.3"
+            android:singleLine="true"
+            android:layout_marginBottom="20dp" />
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn_primary"
+            android:text="AUTHENTICATE"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/loginError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Invalid Admin Access!"
+            android:textColor="#ef4444"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</LinearLayout>

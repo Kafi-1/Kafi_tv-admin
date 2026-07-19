@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8fafc">
+
+    <!-- MAIN CONTENT -->
+    <LinearLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:background="@drawable/bg_header">
+
+            <Button
+                android:id="@+id/menuBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="\u2630"
+                android:textSize="18sp"
+                android:textColor="#475569"
+                android:background="@drawable/bg_btn_ghost"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/sectionTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="DASHBOARD"
+                android:textColor="#1e293b"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:paddingLeft="12dp" />
+
+            <Button
+                android:id="@+id/refreshBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="\u21BB"
+                android:textSize="18sp"
+                android:textColor="#6366f1"
+                android:background="@drawable/bg_btn_ghost"
+                android:gravity="center"
+                android:layout_marginRight="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="\u25CF LIVE"
+                android:textColor="#22c55e"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_badge_live"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp" />
+        </LinearLayout>
+
+        <!-- CONTENT AREA -->
+        <FrameLayout
+            android:id="@+id/contentFrame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- LOADING INDICATOR -->
+            <LinearLayout
+                android:id="@+id/loadingView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#f8fafc">
+                <ProgressBar
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:indeterminate="true"
+                    style="@android:style/Widget.ProgressBar" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loading..."
+                    android:textColor="#64748b"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp" />
+            </LinearLayout>
+
+            <!-- DASHBOARD -->
+            <ScrollView
+                android:id="@+id/dashboardPage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_stat_card"
+                            android:padding="20dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginBottom="12dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="TOTAL USERS" android:textColor="#64748b" android:textSize="9sp" android:textStyle="bold" android:letterSpacing="0.05" />
+                            <TextView android:id="@+id/statUsers" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:textColor="#1e293b" android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_stat_card"
+                            android:padding="20dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginBottom="12dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="PENDING" android:textColor="#64748b" android:textSize="9sp" android:textStyle="bold" android:letterSpacing="0.05" />
+                            <TextView android:id="@+id/statPending" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:textColor="#f59e0b" android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_stat_card"
+                            android:padding="20dp"
+                            android:layout_marginRight="6dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="EXPIRED" android:textColor="#64748b" android:textSize="9sp" android:textStyle="bold" android:letterSpacing="0.05" />
+                            <TextView android:id="@+id/statExpired" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:textColor="#ef4444" android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_stat_card"
+                            android:padding="20dp"
+                            android:layout_marginLeft="6dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="CHANNELS" android:textColor="#64748b" android:textSize="9sp" android:textStyle="bold" android:letterSpacing="0.05" />
+                            <TextView android:id="@+id/statChannels" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:textColor="#6366f1" android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <!-- Active Users stat -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_stat_card"
+                            android:padding="20dp"
+                            android:layout_marginRight="6dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="ACTIVE" android:textColor="#64748b" android:textSize="9sp" android:textStyle="bold" android:letterSpacing="0.05" />
+                            <TextView android:id="@+id/statActive" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:textColor="#22c55e" android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_stat_card"
+                            android:padding="20dp"
+                            android:layout_marginLeft="6dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="APPROVED" android:textColor="#64748b" android:textSize="9sp" android:textStyle="bold" android:letterSpacing="0.05" />
+                            <TextView android:id="@+id/statApproved" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:textColor="#22c55e" android:textSize="28sp" android:textStyle="bold" android:layout_marginTop="8dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- USERS PAGE -->
+            <LinearLayout
+                android:id="@+id/usersPage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Users" android:textColor="#1e293b" android:textSize="20sp" android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/userSearch"
+                        android:layout_width="140dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_input"
+                        android:textColor="#1e293b"
+                        android:textColorHint="#94a3b8"
+                        android:hint="Search..."
+                        android:textSize="12sp"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:layout_marginRight="8dp" />
+                    <Button
+                        android:id="@+id/addUserBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_btn_primary"
+                        android:text="+ Create"
+                        android:textColor="#ffffff"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp" />
+                </LinearLayout>
+                <ListView
+                    android:id="@+id/userListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="8dp"
+                    android:padding="4dp" />
+            </LinearLayout>
+
+            <!-- PAYMENTS PAGE -->
+            <LinearLayout
+                android:id="@+id/paymentsPage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Payment Requests" android:textColor="#1e293b" android:textSize="20sp" android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+                <!-- Filter tabs -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+                    <Button android:id="@+id/payFilterAll" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1"
+                        android:background="@drawable/bg_btn_primary" android:text="All" android:textColor="#ffffff" android:textSize="11sp" android:textStyle="bold"
+                        android:layout_marginRight="4dp" />
+                    <Button android:id="@+id/payFilterPending" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1"
+                        android:background="@drawable/bg_btn_ghost" android:text="Pending" android:textColor="#f59e0b" android:textSize="11sp" android:textStyle="bold"
+                        android:layout_marginRight="4dp" />
+                    <Button android:id="@+id/payFilterApproved" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1"
+                        android:background="@drawable/bg_btn_ghost" android:text="Approved" android:textColor="#22c55e" android:textSize="11sp" android:textStyle="bold"
+                        android:layout_marginRight="4dp" />
+                    <Button android:id="@+id/payFilterRejected" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1"
+                        android:background="@drawable/bg_btn_ghost" android:text="Rejected" android:textColor="#ef4444" android:textSize="11sp" android:textStyle="bold" />
+                </LinearLayout>
+                <ListView
+                    android:id="@+id/paymentListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="8dp"
+                    android:padding="4dp" />
+            </LinearLayout>
+
+            <!-- CATEGORIES PAGE -->
+            <LinearLayout
+                android:id="@+id/categoriesPage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Categories" android:textColor="#1e293b" android:textSize="20sp" android:textStyle="bold" />
+                    <Button
+                        android:id="@+id/deleteAllCatsBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_btn_danger"
+                        android:text="Delete All"
+                        android:textColor="#ef4444"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:layout_marginRight="8dp" />
+                    <Button
+                        android:id="@+id/addCatBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_btn_primary"
+                        android:text="+ Add"
+                        android:textColor="#ffffff"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp" />
+                </LinearLayout>
+                <GridView
+                    android:id="@+id/catGridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:numColumns="2"
+                    android:horizontalSpacing="8dp"
+                    android:verticalSpacing="8dp" />
+            </LinearLayout>
+
+            <!-- CHANNELS PAGE -->
+            <LinearLayout
+                android:id="@+id/channelsPage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Channels" android:textColor="#1e293b" android:textSize="20sp" android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/chSearch"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_input"
+                        android:textColor="#1e293b"
+                        android:textColorHint="#94a3b8"
+                        android:hint="Search..."
+                        android:textSize="12sp"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:layout_marginRight="8dp" />
+                    <Button
+                        android:id="@+id/bulkImportBtn"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_btn_ghost"
+                        android:text="\u2B07"
+                        android:textSize="16sp"
+                        android:textColor="#6366f1"
+                        android:gravity="center"
+                        android:layout_marginRight="8dp" />
+                    <Button
+                        android:id="@+id/addChannelBtn"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_btn_primary"
+                        android:text="+"
+                        android:textSize="18sp"
+                        android:textColor="#ffffff"
+                        android:gravity="center" />
+                </LinearLayout>
+                <GridView
+                    android:id="@+id/channelGridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:numColumns="4"
+                    android:horizontalSpacing="8dp"
+                    android:verticalSpacing="8dp" />
+            </LinearLayout>
+
+            <!-- CHANNEL STATUS PAGE -->
+            <ScrollView
+                android:id="@+id/channelStatusPage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                            android:text="Channel Status" android:textColor="#1e293b" android:textSize="20sp" android:textStyle="bold" />
+                        <Button
+                            android:id="@+id/checkAllStreamsBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_btn_primary"
+                            android:text="Check All"
+                            android:textColor="#ffffff"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp" />
+                    </LinearLayout>
+                    <!-- Check progress -->
+                    <LinearLayout
+                        android:id="@+id/checkProgressLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_card"
+                        android:padding="16dp"
+                        android:layout_marginBottom="12dp"
+                        android:visibility="gone">
+                        <TextView android:id="@+id/checkProgressText" android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:text="Checking..." android:textColor="#475569" android:textSize="12sp" android:textStyle="bold" android:gravity="center" />
+                        <ProgressBar
+                            android:id="@+id/checkProgressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            style="@android:style/Widget.ProgressBar.Horizontal"
+                            android:progressDrawable="@drawable/progress_bar"
+                            android:max="100"
+                            android:progress="0"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                            android:orientation="vertical" android:background="@drawable/bg_stat_card" android:padding="16dp" android:layout_marginRight="4dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="TOTAL" android:textColor="#64748b" android:textSize="9sp" android:textStyle="bold" />
+                            <TextView android:id="@+id/csTotal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:textColor="#1e293b" android:textSize="24sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                            android:orientation="vertical" android:background="@drawable/bg_stat_card" android:padding="16dp" android:layout_marginLeft="4dp" android:layout_marginRight="4dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="LIVE" android:textColor="#64748b" android:textSize="9sp" android:textStyle="bold" />
+                            <TextView android:id="@+id/csLive" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:textColor="#22c55e" android:textSize="24sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                            android:orientation="vertical" android:background="@drawable/bg_stat_card" android:padding="16dp" android:layout_marginLeft="4dp">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="DOWN" android:textColor="#64748b" android:textSize="9sp" android:textStyle="bold" />
+                            <TextView android:id="@+id/csDown" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:textColor="#ef4444" android:textSize="24sp" android:textStyle="bold" android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_card" android:orientation="vertical" android:padding="20dp" android:layout_marginBottom="12dp">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                                android:text="Live Channels" android:textColor="#22c55e" android:textSize="14sp" android:textStyle="bold" />
+                            <Button android:id="@+id/liveToggle" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Show \u25BC" android:textColor="#6366f1" android:textSize="11sp" android:textStyle="bold" android:background="@android:color/transparent" />
+                        </LinearLayout>
+                        <LinearLayout android:id="@+id/liveListContainer" android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:visibility="gone" android:layout_marginTop="12dp" />
+                    </LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_card" android:orientation="vertical" android:padding="20dp">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                                android:text="Down Channels" android:textColor="#ef4444" android:textSize="14sp" android:textStyle="bold" />
+                            <Button android:id="@+id/downToggle" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Show \u25BC" android:textColor="#6366f1" android:textSize="11sp" android:textStyle="bold" android:background="@android:color/transparent" />
+                        </LinearLayout>
+                        <LinearLayout android:id="@+id/downListContainer" android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:visibility="gone" android:layout_marginTop="12dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <!-- SETTINGS PAGE -->
+            <ScrollView
+                android:id="@+id/settingsPage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card"
+                    android:padding="24dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Settings" android:textColor="#1e293b" android:textSize="18sp" android:textStyle="bold"
+                        android:layout_marginBottom="24dp" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="MONTHLY PRICE (BDT)" android:textColor="#64748b" android:textSize="10sp" android:textStyle="bold" android:layout_marginBottom="4dp" />
+                    <EditText android:id="@+id/settingPrice" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_input" android:textColor="#1e293b" android:textColorHint="#94a3b8" android:hint="300"
+                        android:textSize="14sp" android:padding="14dp" android:inputType="number" android:singleLine="true" android:layout_marginBottom="16dp" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="EXPIRY MESSAGE" android:textColor="#64748b" android:textSize="10sp" android:textStyle="bold" android:layout_marginBottom="4dp" />
+                    <EditText android:id="@+id/settingExpireMsg" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_input" android:textColor="#1e293b" android:textColorHint="#94a3b8" android:hint="Subscription Expired!"
+                        android:textSize="14sp" android:padding="14dp" android:singleLine="true" android:layout_marginBottom="16dp" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                            android:text="LIVE NOTICE" android:textColor="#64748b" android:textSize="10sp" android:textStyle="bold" />
+                        <Button android:id="@+id/clearNoticeBtn" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Clear" android:textColor="#ef4444" android:textSize="10sp" android:textStyle="bold" android:background="@android:color/transparent" />
+                    </LinearLayout>
+                    <EditText android:id="@+id/settingNotice" android:layout_width="match_parent" android:layout_height="80dp"
+                        android:background="@drawable/bg_input" android:textColor="#1e293b" android:textColorHint="#94a3b8" android:hint="Enter scrolling notice..."
+                        android:textSize="14sp" android:padding="14dp" android:gravity="top" android:layout_marginBottom="16dp" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="BKASH NUMBER" android:textColor="#64748b" android:textSize="10sp" android:textStyle="bold" android:layout_marginBottom="4dp" />
+                    <EditText android:id="@+id/settingBkash" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_input" android:textColor="#1e293b" android:textColorHint="#94a3b8" android:hint="017xxxxxx"
+                        android:textSize="14sp" android:padding="14dp" android:singleLine="true" android:layout_marginBottom="16dp" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="NAGAD NUMBER" android:textColor="#64748b" android:textSize="10sp" android:textStyle="bold" android:layout_marginBottom="4dp" />
+                    <EditText android:id="@+id/settingNagad" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_input" android:textColor="#1e293b" android:textColorHint="#94a3b8" android:hint="017xxxxxx"
+                        android:textSize="14sp" android:padding="14dp" android:singleLine="true" android:layout_marginBottom="24dp" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#e2e8f0" android:layout_marginBottom="24dp" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="SUPPORT CONTACT" android:textColor="#475569" android:textSize="11sp" android:textStyle="bold" android:letterSpacing="0.05" android:layout_marginBottom="16dp" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="WHATSAPP" android:textColor="#64748b" android:textSize="10sp" android:textStyle="bold" android:layout_marginBottom="4dp" />
+                    <EditText android:id="@+id/settingWhatsapp" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_input" android:textColor="#1e293b" android:textColorHint="#94a3b8" android:hint="8801700000000"
+                        android:textSize="14sp" android:padding="14dp" android:singleLine="true" android:layout_marginBottom="16dp" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="TELEGRAM" android:textColor="#64748b" android:textSize="10sp" android:textStyle="bold" android:layout_marginBottom="4dp" />
+                    <EditText android:id="@+id/settingTelegram" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_input" android:textColor="#1e293b" android:textColorHint="#94a3b8" android:hint="https://t.me/channel"
+                        android:textSize="14sp" android:padding="14dp" android:singleLine="true" android:layout_marginBottom="16dp" />
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="EMAIL" android:textColor="#64748b" android:textSize="10sp" android:textStyle="bold" android:layout_marginBottom="4dp" />
+                    <EditText android:id="@+id/settingEmail" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_input" android:textColor="#1e293b" android:textColorHint="#94a3b8" android:hint="support@pro.com"
+                        android:textSize="14sp" android:padding="14dp" android:inputType="textEmailAddress" android:singleLine="true" android:layout_marginBottom="24dp" />
+
+                    <Button android:id="@+id/saveSettingsBtn" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_btn_primary" android:text="Save All Settings" android:textColor="#ffffff"
+                        android:textSize="14sp" android:textStyle="bold" android:padding="16dp" android:layout_marginBottom="32dp" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#e2e8f0" android:layout_marginBottom="24dp" />
+
+                    <Button android:id="@+id/deleteAllChBtn" android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:background="@drawable/bg_btn_danger" android:text="Delete All Channels" android:textColor="#ef4444"
+                        android:textSize="14sp" android:textStyle="bold" android:padding="14dp" />
+                </LinearLayout>
+            </ScrollView>
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- SIDEBAR OVERLAY -->
+    <View
+        android:id="@+id/sidebarOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#33000000"
+        android:visibility="gone" />
+
+    <!-- SIDEBAR - keeping dark for contrast -->
+    <LinearLayout
+        android:id="@+id/sidebar"
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#1e293b"
+        android:padding="20dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="32dp">
+            <TextView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_logo"
+                android:text="K"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="TV BY KAFI" android:textColor="#ffffff" android:textSize="14sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="ADMIN PANEL" android:textColor="#818cf8" android:textSize="8sp" android:textStyle="bold" android:letterSpacing="0.2" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/closeSidebarBtn"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:text="\u2715"
+                android:textColor="#64748b"
+                android:textSize="16sp"
+                android:background="@android:color/transparent"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <Button android:id="@+id/navDashboard" android:layout_width="match_parent" android:layout_height="48dp"
+            android:background="@drawable/bg_sidebar_active" android:text="\uD83D\uDCCA  Dashboard" android:textColor="#ffffff"
+            android:textSize="13sp" android:textStyle="bold" android:gravity="center_vertical" android:paddingLeft="16dp" android:layout_marginBottom="4dp" />
+        <Button android:id="@+id/navPayments" android:layout_width="match_parent" android:layout_height="48dp"
+            android:background="@drawable/bg_sidebar_item" android:text="\uD83D\uDCB0  Payments" android:textColor="#94a3b8"
+            android:textSize="13sp" android:textStyle="bold" android:gravity="center_vertical" android:paddingLeft="16dp" android:layout_marginBottom="4dp" />
+        <Button android:id="@+id/navCategories" android:layout_width="match_parent" android:layout_height="48dp"
+            android:background="@drawable/bg_sidebar_item" android:text="\uD83C\uDFF7  Categories" android:textColor="#94a3b8"
+            android:textSize="13sp" android:textStyle="bold" android:gravity="center_vertical" android:paddingLeft="16dp" android:layout_marginBottom="4dp" />
+        <Button android:id="@+id/navChannels" android:layout_width="match_parent" android:layout_height="48dp"
+            android:background="@drawable/bg_sidebar_item" android:text="\uD83D\uDCFA  Channels" android:textColor="#94a3b8"
+            android:textSize="13sp" android:textStyle="bold" android:gravity="center_vertical" android:paddingLeft="16dp" android:layout_marginBottom="4dp" />
+        <Button android:id="@+id/navUsers" android:layout_width="match_parent" android:layout_height="48dp"
+            android:background="@drawable/bg_sidebar_item" android:text="\uD83D\uDC65  Users" android:textColor="#94a3b8"
+            android:textSize="13sp" android:textStyle="bold" android:gravity="center_vertical" android:paddingLeft="16dp" android:layout_marginBottom="4dp" />
+        <Button android:id="@+id/navChStatus" android:layout_width="match_parent" android:layout_height="48dp"
+            android:background="@drawable/bg_sidebar_item" android:text="\uD83D\uDCE1  Ch Status" android:textColor="#94a3b8"
+            android:textSize="13sp" android:textStyle="bold" android:gravity="center_vertical" android:paddingLeft="16dp" android:layout_marginBottom="4dp" />
+        <Button android:id="@+id/navSettings" android:layout_width="match_parent" android:layout_height="48dp"
+            android:background="@drawable/bg_sidebar_item" android:text="\u2699  Settings" android:textColor="#94a3b8"
+            android:textSize="13sp" android:textStyle="bold" android:gravity="center_vertical" android:paddingLeft="16dp" />
+
+        <View android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#334155" android:layout_marginBottom="16dp" />
+        <Button android:id="@+id/logoutBtn" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn_danger" android:text="Log Out" android:textColor="#ef4444"
+            android:textSize="14sp" android:textStyle="bold" android:padding="14dp" />
+    </LinearLayout>
+
+</FrameLayout>

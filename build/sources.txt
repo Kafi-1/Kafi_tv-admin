@@ -1,0 +1,8 @@
+/storage/emulated/0/admin_nativ/build/gen/com/kafi/admintv/R.java
+/storage/emulated/0/admin_nativ/src/com/kafi/admintv/LoginActivity.java
+/storage/emulated/0/admin_nativ/src/com/kafi/admintv/UserAdapter.java
+/storage/emulated/0/admin_nativ/src/com/kafi/admintv/MainActivity.java
+/storage/emulated/0/admin_nativ/src/com/kafi/admintv/FirestoreHelper.java
+/storage/emulated/0/admin_nativ/src/com/kafi/admintv/ChannelAdapter.java
+/storage/emulated/0/admin_nativ/src/com/kafi/admintv/PaymentAdapter.java
+/storage/emulated/0/admin_nativ/src/com/kafi/admintv/CategoryAdapter.java

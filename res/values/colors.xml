@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#fff8fafc</color>
+    <color name="bg_card">#ffffffff</color>
+    <color name="bg_card_border">#ffe2e8f0</color>
+    <color name="bg_hover">#fff1f5f9</color>
+
+    <color name="text_primary">#ff1e293b</color>
+    <color name="text_secondary">#ff475569</color>
+    <color name="text_muted">#ff94a3b8</color>
+    <color name="text_dark">#ff334155</color>
+
+    <color name="indigo">#ff6366f1</color>
+    <color name="indigo_light">#ff818cf8</color>
+    <color name="purple">#ff8b5cf6</color>
+    <color name="purple_deep">#ffa855f7</color>
+
+    <color name="green">#ff22c55e</color>
+    <color name="green_light">#ff4ade80</color>
+    <color name="amber">#fff59e0b</color>
+    <color name="amber_light">#fffbbf24</color>
+    <color name="red">#ffef4444</color>
+    <color name="red_light">#fff87171</color>
+
+    <color name="white">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="sidebar_bg">#ff1e293b</color>
+    <color name="sidebar_border">#ff334155</color>
+
+    <color name="green_bg">#1a22c55e</color>
+    <color name="amber_bg">#1af59e0b</color>
+    <color name="red_bg">#1aef4444</color>
+    <color name="indigo_bg">#1a6366f1</color>
+    <color name="purple_bg">#1aa855f7</color>
+
+    <color name="header_bg">#ffffffff</color>
+    <color name="input_bg">#fff1f5f9</color>
+    <color name="input_border">#ffe2e8f0</color>
+    <color name="divider">#ffe2e8f0</color>
+</resources>

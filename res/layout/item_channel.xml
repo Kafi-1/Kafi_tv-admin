@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card"
+    android:padding="8dp"
+    android:gravity="center">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
+
+        <ImageView
+            android:id="@+id/chLogo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:background="#1e293b" />
+
+        <TextView
+            android:id="@+id/chStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\u25CF"
+            android:textColor="#4ade80"
+            android:textSize="8sp"
+            android:layout_gravity="top|right"
+            android:padding="2dp" />
+
+        <TextView
+            android:id="@+id/chDrmBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DRM"
+            android:textColor="#818cf8"
+            android:textSize="6sp"
+            android:textStyle="bold"
+            android:background="#1a6366f1"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
+            android:layout_gravity="top|left"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/chName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#94a3b8"
+        android:textSize="9sp"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:layout_marginTop="4dp" />
+</LinearLayout>
