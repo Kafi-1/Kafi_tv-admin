@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up JDK 8
+      - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: '8'
+          java-version: '17'
           distribution: 'temurin'
 
       - name: Set up Android SDK
@@ -55,7 +55,7 @@ jobs:
           echo "[3/6] JAVAC - Compiling Java..."
           find "$BUILD/gen" -name "*.java" > "$BUILD/sources.txt"
           find "$PROJECT/src" -name "*.java" >> "$BUILD/sources.txt"
-          javac -source 1.8 -target 1.8 \
+          javac --release 8 \
               -classpath "$ANDROID_JAR" \
               -d "$BUILD/obj" \
               @"$BUILD/sources.txt"
