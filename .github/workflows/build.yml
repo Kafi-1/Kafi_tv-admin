@@ -73,12 +73,14 @@ jobs:
           cd "$GITHUB_WORKSPACE"
 
           echo "[6/6] SIGNING APK..."
-          keytool -genkeypair -v \
-              -keystore release.keystore \
-              -alias release \
-              -keyalg RSA -keysize 2048 -validity 10000 \
-              -storepass android123 -keypass android123 \
-              -dname "CN=TV Admin, OU=Kafi, O=TVByKafi, L=Dhaka, ST=Dhaka, C=BD"
+          if [ ! -f release.keystore ]; then
+            keytool -genkeypair -v \
+                -keystore release.keystore \
+                -alias release \
+                -keyalg RSA -keysize 2048 -validity 10000 \
+                -storepass android123 -keypass android123 \
+                -dname "CN=TV Admin, OU=Kafi, O=TVByKafi, L=Dhaka, ST=Dhaka, C=BD"
+          fi
 
           $BUILD_TOOLS/apksigner sign \
               --ks release.keystore \
