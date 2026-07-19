@@ -62,13 +62,15 @@ jobs:
 
           echo "[4/6] D8 - Creating DEX..."
           $BUILD_TOOLS/d8 --output "$BUILD/dex" $(find "$BUILD/obj" -name "*.class") --lib "$ANDROID_JAR"
+          echo "DEX output contents:"
+          ls -la "$BUILD/dex/"
 
           echo "[5/6] Adding DEX to APK..."
+          cp "$BUILD/dex/classes.dex" "$BUILD/apk/classes.dex"
           cd "$BUILD/apk"
-          cp "$BUILD/dex/classes.dex" .
           zip -j base.apk classes.dex
           rm -f classes.dex
-          cd -
+          cd "$GITHUB_WORKSPACE"
 
           echo "[6/6] SIGNING APK..."
           keytool -genkeypair -v \
